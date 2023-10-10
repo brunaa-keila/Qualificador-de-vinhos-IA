@@ -5,25 +5,15 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import MinMaxScaler
 from tkinter.filedialog import askopenfilename
-import joblib
-from tkinter import *
-
-CaixaDeEntrada1 = ''
-
-janela = Tk()
-img = PhotoImage(file="")
-label_imagem = Label(janela, image=img).pack()
-
-
+from tkinter import Label, Entry, Button, Tk
 
 def classificador(teste):
   base_vinho = pd.read_csv('./winequality-red.csv').values
 
-  x_train, x_test, y_train, y_test = train_test_split(np.array(base_vinho[:,0:11]), np.array(base_vinho[:,11]), test_size=0.3, shuffle=True, random_state=32)
+  x_train, y_train = train_test_split(np.array(base_vinho[:,0:11]), np.array(base_vinho[:,11]), test_size=0.3, shuffle=True, random_state=32)
   normalizador = MinMaxScaler()
   normalizador.fit(x_train)
   X_norm_train = normalizador.transform(x_train)
-  X_norm_test = normalizador.transform(x_test)
 
   knn = KNeighborsClassifier(n_neighbors=3)
   knn.fit(X_norm_train, y_train)
@@ -69,9 +59,7 @@ def obter_dados():
   
   dados = [[acidez_fixa, acidez_volatil, acido_citrico, acucar_residual, cloreto, dioxido_enxofre, dioxido_enxofre_total, densidade, ph, sulfatos, alcool]]
   print(dados)
-  c = classificador(dados)
-  classificacao['text'] = c
-
+  classificacao['text'] = classificador(dados)
 
 #-------------------------------------------------#
 #tela
@@ -134,6 +122,8 @@ CaixaDeEntrada11.place(x=300, y=400)
 Info11 = Label(font=('Arial', '11', 'bold'), fg='white', bg='#682a31', text='Alcool:')
 Info11.place(x=65, y=400)
 
+janela = Tk()
+
 classificacao = Label(janela, text='', font=('Arial', '10', 'bold'), fg='white', bg='#682a31', width=46, height=2, anchor='w', justify='left')
 classificacao.place(x=300, y=438)
 infoClass = Label(font=('Arial', '11', 'bold'), fg='white', bg='#682a31', text='Classificação:')
@@ -145,19 +135,8 @@ proximo.place(x=65, y=550)
 importarDados = Button(width='39', text='IMPORTAR DADOS', font=('Arial','10'), command=classificar_dados_importados)
 importarDados.place(x=425, y=550)
 
-
-#Teste1 = [[5.7,1.13,0.09,1.5,0.172,7.0,19.0,0.9940000000000001,3.5,0.48,9.8]]
-#Teste = [[6.7,0.76,0.02,1.8,0.078,6.0,12.0,0.996,3.55,0.63,9.95]]
-#teste2 = [[2.1,2.1,2.1,2.1,2.1,2.1,2.1,2.1,2.1,2.1,2.1]]
-#teste3 = obter_dados()
-#print("Teste", classificador(teste2))
-
-
-
-
 janela.resizable(width=False, height=False)
 janela.configure(bg='#682a31')
-#janela.wm_iconbitmap('ICO.ico')
 janela.title('Classificador de Vinhos')
 janela.geometry('800x800')
 janela.mainloop()
