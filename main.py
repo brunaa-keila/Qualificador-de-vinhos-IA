@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import MinMaxScaler
+from tkinter.filedialog import askopenfilename
 import joblib
 from tkinter import *
 
@@ -12,6 +13,7 @@ CaixaDeEntrada1 = ''
 janela = Tk()
 img = PhotoImage(file="")
 label_imagem = Label(janela, image=img).pack()
+
 
 
 def classificador(teste):
@@ -25,26 +27,50 @@ def classificador(teste):
 
   knn = KNeighborsClassifier(n_neighbors=3)
   knn.fit(X_norm_train, y_train)
+  
   return knn.predict(teste)
 
 
-def obter_dados():
-    acidez_fixa = float(CaixaDeEntrada1.get())
-    acidez_volatil = float(CaixaDeEntrada2.get())
-    acido_citrico = float(CaixaDeEntrada3.get())
-    acucar_residual = float(CaixaDeEntrada4.get())
-    cloreto = float(CaixaDeEntrada5.get())
-    dioxido_enxofre = float(CaixaDeEntrada6.get())
-    dioxido_enxofre_total = float(CaixaDeEntrada7.get())
-    densidade = float(CaixaDeEntrada8.get())
-    ph = float(CaixaDeEntrada9.get())
-    sulfatos = float(CaixaDeEntrada10.get())
-    alcool = float(CaixaDeEntrada11.get())
-    
-    dados = [[acidez_fixa, acidez_volatil, acido_citrico, acucar_residual, cloreto, dioxido_enxofre, dioxido_enxofre_total, densidade, ph, sulfatos, alcool]]
+def classificar_dados_importados():
+  Tk().withdraw()
+  caminho_do_arquivo = askopenfilename(filetypes = (("Arquivo CSV", "*.csv"), ("Arquivo TXT", "*.txt")))
 
-    c = classificador(dados)
-    classificacao['text'] = c
+  if caminho_do_arquivo:
+    arquivo = pd.read_csv(caminho_do_arquivo).values
+    arquivos = arquivo[:,0:11]
+    with open("Classificação de Vinhos.txt", "w") as arquivo:
+      arquivo.write("Classificação de vinhos gerados:\n")
+      arquivo.close()
+      
+    with open("Classificação de Vinhos.txt", "a") as arquivo: 
+      for teste in arquivos:
+        testes = [teste]
+        arquivo.write(str(classificador(testes)))
+        arquivo.write("\n")
+      arquivo.close()
+      classificacao['text'] = "Classificação salva no arquivo 'Classificação de Vinhos'"
+      
+  else:
+    classificacao['text'] = "Nenhum arquivo selecionado"
+
+
+def obter_dados():
+  acidez_fixa = float(CaixaDeEntrada1.get())
+  acidez_volatil = float(CaixaDeEntrada2.get())
+  acido_citrico = float(CaixaDeEntrada3.get())
+  acucar_residual = float(CaixaDeEntrada4.get())
+  cloreto = float(CaixaDeEntrada5.get())
+  dioxido_enxofre = float(CaixaDeEntrada6.get())
+  dioxido_enxofre_total = float(CaixaDeEntrada7.get())
+  densidade = float(CaixaDeEntrada8.get())
+  ph = float(CaixaDeEntrada9.get())
+  sulfatos = float(CaixaDeEntrada10.get())
+  alcool = float(CaixaDeEntrada11.get())
+  
+  dados = [[acidez_fixa, acidez_volatil, acido_citrico, acucar_residual, cloreto, dioxido_enxofre, dioxido_enxofre_total, densidade, ph, sulfatos, alcool]]
+  print(dados)
+  c = classificador(dados)
+  classificacao['text'] = c
 
 
 #-------------------------------------------------#
@@ -108,7 +134,7 @@ CaixaDeEntrada11.place(x=300, y=400)
 Info11 = Label(font=('Arial', '11', 'bold'), fg='white', bg='#682a31', text='Alcool:')
 Info11.place(x=65, y=400)
 
-classificacao = Label(janela, text='', font=('Arial', '10', 'bold'), fg='white', bg='#682a31', width=39, height=2, anchor='w', justify='left')
+classificacao = Label(janela, text='', font=('Arial', '10', 'bold'), fg='white', bg='#682a31', width=46, height=2, anchor='w', justify='left')
 classificacao.place(x=300, y=438)
 infoClass = Label(font=('Arial', '11', 'bold'), fg='white', bg='#682a31', text='Classificação:')
 infoClass.place(x=65, y=450)
@@ -116,7 +142,7 @@ infoClass.place(x=65, y=450)
 proximo = Button(width='39', text='CLASSIFICAR', font=('Arial','10'), command=obter_dados)
 proximo.place(x=65, y=550)
 
-importarDados = Button(width='39', text='IMPORTAR DADOS', font=('Arial','10'), command='')
+importarDados = Button(width='39', text='IMPORTAR DADOS', font=('Arial','10'), command=classificar_dados_importados)
 importarDados.place(x=425, y=550)
 
 
