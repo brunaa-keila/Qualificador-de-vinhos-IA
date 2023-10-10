@@ -79,85 +79,80 @@ def obter_dados():
 titulo1 = Label(bg='#682a31', font=('Roboto', '34', 'bold'), fg='white', text='Bem Vindo ao QualityVinho!')
 titulo1.place(x='40', y='2')
 
-CaixaDeEntrada1 = Entry(width=25, bg='white', font=('Comic Sans MS', '10'))
+titul2 = Label(bg='#682a31', font=('Roboto', '12', 'bold'), fg='white', text='Insira os dados do vinho:')
+titul2.place(x=65, y=110)
+
+CaixaDeEntrada1 = Entry(width=25, bg='white', font=('Roboto', '10'))
 CaixaDeEntrada1.place(x=300, y=150)
-Info1 = Label(font=('Arial', '11', 'bold'), fg='white', bg='#682a31', text='Acidez Fixa: ')
+Info1 = Label(font=('Roboto', '11', 'bold'), fg='white', bg='#682a31', text='Acidez Fixa: ')
 Info1.place(x=65, y=150)
 
-CaixaDeEntrada2 = Entry(width=25, bg='white', font=('Comic Sans MS', '10'))
+CaixaDeEntrada2 = Entry(width=25, bg='white', font=('Roboto', '10'))
 CaixaDeEntrada2.place(x=300, y=175)
-Info2 = Label(font=('Arial', '11', 'bold'), fg='white', bg='#682a31', text='Acidez Volatil: ')
+Info2 = Label(font=('Roboto', '11', 'bold'), fg='white', bg='#682a31', text='Acidez Volatil: ')
 Info2.place(x=65, y=175)
 
-CaixaDeEntrada3 = Entry(width=25, bg='white', font=('Comic Sans MS', '10'))
+CaixaDeEntrada3 = Entry(width=25, bg='white', font=('Roboto', '10'))
 CaixaDeEntrada3.place(x=300, y=200)
-Info3 = Label(font=('Arial', '11', 'bold'), fg='white', bg='#682a31', text='Acido citrico: ')
+Info3 = Label(font=('Roboto', '11', 'bold'), fg='white', bg='#682a31', text='Acido citrico: ')
 Info3.place(x=65, y=200)
 
-CaixaDeEntrada4 = Entry(width=25, bg='white', font=('Comic Sans MS', '10'))
+CaixaDeEntrada4 = Entry(width=25, bg='white', font=('Roboto', '10'))
 CaixaDeEntrada4.place(x=300, y=225)
-Info4 = Label(font=('Arial', '11', 'bold'), fg='white', bg='#682a31', text='Acucar Residual: ')
+Info4 = Label(font=('Roboto', '11', 'bold'), fg='white', bg='#682a31', text='Acucar Residual: ')
 Info4.place(x=65, y=225)
 
-CaixaDeEntrada5 = Entry(width=25, bg='white', font=('Comic Sans MS', '10'))
+CaixaDeEntrada5 = Entry(width=25, bg='white', font=('Roboto', '10'))
 CaixaDeEntrada5.place(x=300, y=250)
-Info5 = Label(font=('Arial', '11', 'bold'), fg='white', bg='#682a31', text='Cloreto: ')
+Info5 = Label(font=('Roboto', '11', 'bold'), fg='white', bg='#682a31', text='Cloreto: ')
 Info5.place(x=65, y=250)
 
-CaixaDeEntrada6 = Entry(width=25, bg='white', font=('Comic Sans MS', '10'))
+CaixaDeEntrada6 = Entry(width=25, bg='white', font=('Roboto', '10'))
 CaixaDeEntrada6.place(x=300, y=275)
-Info6 = Label(font=('Arial', '11', 'bold'), fg='white', bg='#682a31', text='Dioxido de enxofre livre: ')
+Info6 = Label(font=('Roboto', '11', 'bold'), fg='white', bg='#682a31', text='Dioxido de enxofre livre: ')
 Info6.place(x=65, y=275)
 
-CaixaDeEntrada7 = Entry(width=25, bg='white', font=('Comic Sans MS', '10'))
+CaixaDeEntrada7 = Entry(width=25, bg='white', font=('Roboto', '10'))
 CaixaDeEntrada7.place(x=300, y=300)
-Info7 = Label(font=('Arial', '11', 'bold'), fg='white', bg='#682a31', text='Dioxido de enxofre total: ')
+Info7 = Label(font=('Roboto', '11', 'bold'), fg='white', bg='#682a31', text='Dioxido de enxofre total: ')
 Info7.place(x=65, y=300)
 
-CaixaDeEntrada8 = Entry(width=25, bg='white', font=('Comic Sans MS', '10'))
+CaixaDeEntrada8 = Entry(width=25, bg='white', font=('Roboto', '10'))
 CaixaDeEntrada8.place(x=300, y=325)
-Info8 = Label(font=('Arial', '11', 'bold'), fg='white', bg='#682a31', text='Densidade: ')
+Info8 = Label(font=('Roboto', '11', 'bold'), fg='white', bg='#682a31', text='Densidade: ')
 Info8.place(x=65, y=325)
 
-CaixaDeEntrada9 = Entry(width=25, bg='white', font=('Comic Sans MS', '10'))
+CaixaDeEntrada9 = Entry(width=25, bg='white', font=('Roboto', '10'))
 CaixaDeEntrada9.place(x=300, y=350)
-Info9 = Label(font=('Arial', '11', 'bold'), fg='white', bg='#682a31', text='PH: ')
+Info9 = Label(font=('Roboto', '11', 'bold'), fg='white', bg='#682a31', text='PH: ')
 Info9.place(x=65, y=350)
 
-CaixaDeEntrada10 = Entry(width=25, bg='white', font=('Comic Sans MS', '10'))
+CaixaDeEntrada10 = Entry(width=25, bg='white', font=('Roboto', '10'))
 CaixaDeEntrada10.place(x=300, y=375)
-Info10 = Label(font=('Arial', '11', 'bold'), fg='white', bg='#682a31', text='Sulfatos: ')
+Info10 = Label(font=('Roboto', '11', 'bold'), fg='white', bg='#682a31', text='Sulfatos: ')
 Info10.place(x=65, y=375)
 
-CaixaDeEntrada11 = Entry(width=25, bg='white', font=('Comic Sans MS', '10'))
+CaixaDeEntrada11 = Entry(width=25, bg='white', font=('Roboto', '10'))
 CaixaDeEntrada11.place(x=300, y=400)
-Info11 = Label(font=('Arial', '11', 'bold'), fg='white', bg='#682a31', text='Alcool:')
+Info11 = Label(font=('Roboto', '11', 'bold'), fg='white', bg='#682a31', text='Alcool:')
 Info11.place(x=65, y=400)
 
-classificacao = Label(janela, text='', font=('Arial', '10', 'bold'), fg='white', bg='#682a31', width=46, height=2, anchor='w', justify='left')
+classificacao = Label(janela, text='', font=('Roboto', '10', 'bold'), fg='white', bg='#682a31', width=46, height=2, anchor='w', justify='left')
 classificacao.place(x=300, y=438)
-infoClass = Label(font=('Arial', '11', 'bold'), fg='white', bg='#682a31', text='Classificação:')
+infoClass = Label(font=('Roboto', '11', 'bold'), fg='white', bg='#682a31', text='Classificação:')
 infoClass.place(x=65, y=450)
 
-proximo = Button(width='39', text='CLASSIFICAR', font=('Arial','10'), command=obter_dados)
+proximo = Button(width='39', text='CLASSIFICAR', font=('Roboto','10'), command=obter_dados)
 proximo.place(x=65, y=550)
 
-importarDados = Button(width='39', text='IMPORTAR DADOS', font=('Arial','10'), command=classificar_dados_importados)
+importarDados = Button(width='39', text='IMPORTAR DADOS', font=('Roboto','10'), command=classificar_dados_importados)
 importarDados.place(x=425, y=550)
-
-
-#Teste1 = [[5.7,1.13,0.09,1.5,0.172,7.0,19.0,0.9940000000000001,3.5,0.48,9.8]]
-#Teste = [[6.7,0.76,0.02,1.8,0.078,6.0,12.0,0.996,3.55,0.63,9.95]]
-#teste2 = [[2.1,2.1,2.1,2.1,2.1,2.1,2.1,2.1,2.1,2.1,2.1]]
-#teste3 = obter_dados()
-#print("Teste", classificador(teste2))
 
 
 
 
 janela.resizable(width=False, height=False)
 janela.configure(bg='#682a31')
-#janela.wm_iconbitmap('ICO.ico')
 janela.title('Classificador de Vinhos')
-janela.geometry('800x800')
+janela.geometry('800x650+300+50')
 janela.mainloop()
